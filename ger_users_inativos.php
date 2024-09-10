@@ -1,5 +1,11 @@
 <?php
+session_start();
 
+if (!isset($_SESSION['usuario_id'])) {
+
+    header("Location: index.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -168,10 +174,10 @@
             $('#saveChanges').click(function () {
                 var id = $('#editId').val();
                 var name = $('#editName').val();
-                var email = $('#editEmail').val();  // Corrigido
+                var email = $('#editEmail').val();
                 var nomeCompleto = $('#editNomeCompleto').val();
-                var endereco = $('#editEndereco').val();  // Corrigido
-                var telefone = $('#editTelefone').val();  // Corrigido
+                var endereco = $('#editEndereco').val();
+                var telefone = $('#editTelefone').val();
                 var status = $('#editStatus').val();
 
                 $.ajax({
@@ -180,10 +186,10 @@
                     data: {
                         id: id,
                         name: name,
-                        email: email,  // Adicionado
+                        email: email,
                         nomeCompleto: nomeCompleto,
-                        endereco: endereco,  // Adicionado
-                        telefone: telefone,  // Adicionado
+                        endereco: endereco,
+                        telefone: telefone,
                         status: status
                     },
                     success: function (response) {
@@ -192,7 +198,7 @@
                             alert('Alterado com sucesso');
                             table.ajax.reload();
                         } else {
-                            alert('Erro ao atualizar usuário: ' + response); // Mostra a mensagem de erro
+                            alert('Erro ao atualizar usuário: ' + response);
                         }
                     },
                     error: function () {

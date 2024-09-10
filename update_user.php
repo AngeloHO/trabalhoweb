@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'conexao.php'; // Inclua o arquivo que contém a função getConnection()
+include 'conexao.php'; 
 
 if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['nomeCompleto']) && isset($_POST['endereco']) && isset($_POST['telefone']) && isset($_POST['status'])) {
-    // Recebe os dados enviados via POST
+    
     $id = $_POST['id'];
     $name = $_POST['name'];
     $email = $_POST['email'];

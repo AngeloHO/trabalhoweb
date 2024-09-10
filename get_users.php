@@ -10,7 +10,7 @@ $result = $conn->query($sql);
 
 $data = array();
 while ($row = $result->fetch_assoc()) {
-    // Altera o status para "ATIVO" ou "INATIVO"
+
     if ($row['USU_STATUS'] == 'A') {
         $row['USU_STATUS'] = 'ATIVO';
     } else {
